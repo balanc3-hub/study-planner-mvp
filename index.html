@@ -15,14 +15,11 @@
     <ul>
         {% for task in tasks %}
             <li>
-                {% if task.done %}
-                    <s>{{ task.text }}</s>
-                {% else %}
-                    {{ task.text }}
-                    <a href="/done/{{ loop.index0 }}">[Виконано]</a>
-                {% endif %}
-            </li>
-        {% endfor %}
+      <ul>
+    <li>Завдання 1</li>
+    <li>Завдання 2 [Виконано]</li>
+    <li>Завдання 3</li>
     </ul>
 </body>
 </html>
+
