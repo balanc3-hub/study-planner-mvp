@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Study Planner MVP</title>
+  <meta charset="UTF-8">
+  <title>Планувальник</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    input, button { padding: 5px; font-size: 16px; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin: 5px 0; }
+    .done { text-decoration: line-through; color: gray; }
+  </style>
 </head>
 <body>
-    <h1>Study Planner</h1>
+  <h1>Мій планувальник</h1>
+  
+  <input type="text" id="taskInput" placeholder="Введіть нове завдання">
+  <button onclick="addTask()">Додати</button>
+  
+  <ul id="taskList"></ul>
+  
+  <script>
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      const text = input.value.trim();
+      if (!text) return;
 
-    <form method="post">
-        <input type="text" name="task" placeholder="Нове завдання">
-        <button>Додати</button>
-    </form>
+      const li = document.createElement('li');
+      li.textContent = text;
 
-    <ul>
-        {% for task in tasks %}
-            <li>
-      <ul>
+      // Клик по задаче — отметить как виконано
+      li.onclick = () => li.classList.toggle('done');
+
+      document.getElementById('taskList').appendChild(li);
+      input.value = '';
+    }
+  </script>
 </body>
 </html>
-
-
